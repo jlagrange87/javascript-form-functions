@@ -80,7 +80,7 @@ function nSum(n){
 }
 
 function join(box,spacer){
-	var answer = box.join(" " + spacer + " ");
+	var answer = box.join(spacer + " ");
 	return answer;
 
 }
@@ -114,10 +114,38 @@ function maze(){
 	return maze;
 }
 
-function table(year,make,model,color) {
-	if(year === 2005 && make === "Toyota"){
-		Object.getOwnPropertyNames()
+function table(housingArray, year, make, model, color){
+	
+	var parameters = [];
+	var answer = [];
+	
+	if(year !== ""){
+		parameters.push(year);	
+	}
+	else if(make !== ""){
+		parameters.push(make);	
+	}
+	else if(model !== ""){
+		parameters.push(model);	
+	}
+	else if(color !== ""){
+		parameters.push(color);	
 	}
 
+	for(var i = 0; i < housingArray.length; i++){
+		var count = 0;
+		for(var props in housingArray[i]){
+			for(var x = 0; x < parameters.length; x++){
+				if(housingArray[i][props].toString().toLowerCase() == parameters[x].toLowerCase()){
+					count++;
+				}
+			}
+		}
+		if(count === parameters.length){
+			answer.push(housingArray[i]);
+		}
+	}
+	
+	return answer;
 
 }
