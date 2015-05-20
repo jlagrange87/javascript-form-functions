@@ -134,9 +134,9 @@ function table(housingArray, year, make, model, color){
 
 	for(var i = 0; i < housingArray.length; i++){
 		var count = 0;
-		for(var props in housingArray[i]){
+		for(var propertyName in housingArray[i]){
 			for(var x = 0; x < parameters.length; x++){
-				if(housingArray[i][props].toString().toLowerCase() == parameters[x].toLowerCase()){
+				if(housingArray[i][propertyName].toString().toLowerCase() == parameters[x].toLowerCase()){
 					count++;
 				}
 			}
